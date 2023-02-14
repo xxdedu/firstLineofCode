@@ -61,6 +61,10 @@ public class WeatherActivity extends AppCompatActivity {
 
     private ImageView bingPicImg;
 
+    public DrawerLayout drawerLayout;
+
+    private Button navButton;
+
     /**
      * 下拉刷新
      */
@@ -82,10 +86,23 @@ public class WeatherActivity extends AppCompatActivity {
         comfortText = findViewById(R.id.comfort_text);
         carWashText = findViewById(R.id.car_wash_text);
         sportText = findViewById(R.id.sport_text);
+
+        // 背景图
         bingPicImg = findViewById(R.id.bing_pic_img);
 
+        // 下拉刷新
         swipeRefresh = findViewById(R.id.swipe_refresh);
         swipeRefresh.setColorSchemeResources(R.color.colorPrimary);
+
+        // 获取新增的DrawerLayout和Button的实例，然后点击事件中调用openDrawer方法打开滑动菜单
+        drawerLayout = findViewById(R.id.drawer_layout);
+        navButton = findViewById(R.id.nav_button);
+        navButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                drawerLayout.openDrawer(GravityCompat.START);
+            }
+        });
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
@@ -160,7 +177,7 @@ public class WeatherActivity extends AppCompatActivity {
      *
      * @param WeatherId
      */
-    private void requestWeather(final String WeatherId) {
+    public void requestWeather(final String WeatherId) {
         String weatherUrl = "http://guolin.tech/api/weather?cityid=" + WeatherId + "&key=bc0418b57b2d4918819d3974ac1285d9";
         HttpUtil.sendOkHttpRequest(weatherUrl, new Callback() {
             @Override

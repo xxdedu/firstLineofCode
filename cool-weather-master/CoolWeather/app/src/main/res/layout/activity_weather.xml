@@ -10,6 +10,7 @@
         android:layout_height="match_parent"
         android:scaleType="centerCrop" />
 
+    <!--主屏幕显示的内容-->
     <androidx.drawerlayout.widget.DrawerLayout
         android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
@@ -48,6 +49,7 @@
             </ScrollView>
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
+        <!--作为滑动菜单中显示的内容，所以要在此添加用于遍历省市县数据的碎片-->
         <fragment
             android:id="@+id/choose_area_fragment"
             android:name="com.example.coolweather.ChooseAreaFragment"
