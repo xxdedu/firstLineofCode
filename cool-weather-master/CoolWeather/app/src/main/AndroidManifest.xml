@@ -14,15 +14,9 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <service
-            android:name=".AutoUpdateService"
-            android:enabled="true"
-            android:exported="true"></service>
-        <!--
-        <service
             android:name="com.example.coolweather.service.AutoUpdateService"
             android:enabled="true"
             android:exported="true"></service>
-        -->
         <activity
             android:name=".WeatherActivity"
             android:exported="false" />
