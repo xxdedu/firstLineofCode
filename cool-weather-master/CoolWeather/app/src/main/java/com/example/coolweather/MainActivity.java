@@ -15,11 +15,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences
-                (this);
+
+        // 如果有缓存数据，直接跳转到WeatherActivity
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         if (prefs.getString("weather", null) != null) {
             Intent intent = new Intent(this, WeatherActivity.class);
             startActivity(intent);
+            // 跳转到WeatherActivity后，点击返回键，不会返回到MainActivity页面
             finish();
         }
 
