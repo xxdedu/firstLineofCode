@@ -203,8 +203,6 @@ public class WeatherActivity extends AppCompatActivity {
             }
         });
     }
-
-
 }
 
 
