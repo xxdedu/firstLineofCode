@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,8 +23,18 @@ public class MainActivity extends AppCompatActivity {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+
+                // 隐式intent打开浏览器
+                Intent intent = new Intent(Intent.ACTION_VIEW); // ACTION_VIEW是安卓系统内置的动作
+                intent.setData(Uri.parse("http://www.baidu.com"));
                 startActivity(intent);
+                // 隐式intent
+//                Intent intent = new Intent("com.example.activitytest.ACTION");
+//                startActivity(intent);
+
+                // 显式intent
+//                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+//                startActivity(intent);
 
 //                Toast.makeText(MainActivity.this, "Happy", Toast.LENGTH_SHORT).show();
             }
