@@ -19,6 +19,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // 显式intent传递数据
+        Intent intent = new Intent(this, SecondActivity.class);
+        intent.putExtra("key1", "value1");
+        startActivity(intent);
+
+
         Button button1 = findViewById(R.id.button_1);
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
