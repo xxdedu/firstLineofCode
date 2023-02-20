@@ -37,8 +37,15 @@ public class FruitAdapter extends ArrayAdapter<Fruit> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         // 获得当前项的Fruit实例
         Fruit fruit = getItem(position);
+        View view;
+        // convertView将之前加载好的布局进行缓存 避免重复加载布局
+        if (convertView == null) {
+            view = LayoutInflater.from(getContext()).inflate(resourceId, parent, false);
+        } else {
+            view = convertView;
+        }
         // 为这个子项加载我们传入的布局
-        View view = LayoutInflater.from(getContext()).inflate(resourceId, parent, false);
+//        View view = LayoutInflater.from(getContext()).inflate(resourceId, parent, false);
         // 获得ImageView和TextView的实例
         ImageView fruitImage = view.findViewById(R.id.fruit_image);
         TextView fruitName = view.findViewById(R.id.fruit_name);
