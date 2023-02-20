@@ -35,22 +35,40 @@ public class FruitAdapter extends ArrayAdapter<Fruit> {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        View view;
+        ViewHolder viewHolder;
+
         // 获得当前项的Fruit实例
         Fruit fruit = getItem(position);
-        View view;
+
         // convertView将之前加载好的布局进行缓存 避免重复加载布局
         if (convertView == null) {
             view = LayoutInflater.from(getContext()).inflate(resourceId, parent, false);
+            viewHolder = new ViewHolder();
+            viewHolder.fruitImage = view.findViewById(R.id.fruit_image);
+            viewHolder.fruitName = view.findViewById(R.id.fruit_name);
+            view.setTag(viewHolder); // 将ViewHolder存储在View中
         } else {
             view = convertView;
+            viewHolder = (ViewHolder) view.getTag();
         }
         // 为这个子项加载我们传入的布局
 //        View view = LayoutInflater.from(getContext()).inflate(resourceId, parent, false);
         // 获得ImageView和TextView的实例
-        ImageView fruitImage = view.findViewById(R.id.fruit_image);
-        TextView fruitName = view.findViewById(R.id.fruit_name);
-        fruitImage.setImageResource(fruit.getImageId());
-        fruitName.setText(fruit.getName());
+        /*ImageView fruitImage = view.findViewById(R.id.fruit_image);
+        TextView fruitName = view.findViewById(R.id.fruit_name);*/
+        viewHolder.fruitImage.setImageResource(fruit.getImageId());
+        viewHolder.fruitName.setText(fruit.getName());
         return view;
+    }
+
+    /**
+     * 对控件实例进行缓存，避免每次调用findViewById获取实例
+     */
+    class ViewHolder {
+
+        ImageView fruitImage;
+
+        TextView fruitName;
     }
 }
