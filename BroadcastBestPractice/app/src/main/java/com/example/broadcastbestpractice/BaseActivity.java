@@ -23,7 +23,6 @@ public class BaseActivity extends AppCompatActivity {
     public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
         super.onCreate(savedInstanceState, persistentState);
         ActivityCollector.addActivity(this);
-        Log.d(TAG, "onCreate: 在oncreate");
     }
 
     /**
@@ -36,7 +35,6 @@ public class BaseActivity extends AppCompatActivity {
         intentFilter.addAction("com.example.broadcastbestpractice.FORSE_OFFLINE");
         receiver = new ForceOfflineReceiver();
         registerReceiver(receiver, intentFilter);
-        Log.d(TAG, "onCreate: 在onResume");
     }
 
     @Override
@@ -45,7 +43,6 @@ public class BaseActivity extends AppCompatActivity {
         if (receiver != null) {
             unregisterReceiver(receiver);
             receiver = null;
-            Log.d(TAG, "onCreate: 在onPause");
         }
     }
 
@@ -53,14 +50,12 @@ public class BaseActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         ActivityCollector.removeActivity(this);
-        Log.d(TAG, "onCreate: 在onDestroy");
     }
 
     class ForceOfflineReceiver extends BroadcastReceiver {
 
         @Override
         public void onReceive(final Context context, Intent intent) {
-            Log.d(TAG, "onCreate: 在onReceive");
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
             builder.setTitle("Warning");
             builder.setMessage("You are forced to be offline. Please try to login again");
