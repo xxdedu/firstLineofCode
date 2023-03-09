@@ -15,7 +15,7 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
-        // 取出数据
+        // 取出数据-9.
         /*Intent intent = getIntent();
         String data = intent.getStringExtra("key1");
         Log.d("TAG", data);*/

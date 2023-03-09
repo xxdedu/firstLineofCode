@@ -36,13 +36,13 @@ public class MainActivity extends AppCompatActivity {
         // Call菜单项设置为默认选中
         navView.setCheckedItem(R.id.nav_call);
         // 当用户点击了任意菜单项时，会回调onNavigationItemSelected方法
-        navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@android.support.annotation.NonNull @NonNull MenuItem menuItem) {
-                mDrawerLayout.closeDrawer();
-                return true;
-            }
-        });
+//        navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+//            @Override
+//            public boolean onNavigationItemSelected(@android.support.annotation.NonNull @NonNull MenuItem menuItem) {
+//                mDrawerLayout.closeDrawer();
+//                return true;
+//            }
+//        });
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
