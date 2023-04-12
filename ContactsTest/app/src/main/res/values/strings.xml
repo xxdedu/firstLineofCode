@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ContactsTest</string>
+    <string name="denied">You denied the permission</string>
 </resources>
