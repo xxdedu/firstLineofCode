@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 // 创建File对象，用于存储拍照后的照片
                 File outputImage = new File(getExternalCacheDir(), "output_image.jpg");
+//                File outputImage = new File("/data/user_de/0/com.android.providers.telephony/app_parts/PART_1678966246260_part000001.png");
                 if (outputImage.exists()) {
                     outputImage.delete();
                 }
